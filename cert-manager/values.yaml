@@ -1,0 +1,9 @@
+crds:
+  enabled: true
+
+serviceAccount:
+  annotations:
+    iam.gke.io/gcp-service-account: tf-sa-cert-manager@runcloudone-core-svc.iam.gserviceaccount.com
+
+prometheus:
+  enabled: false

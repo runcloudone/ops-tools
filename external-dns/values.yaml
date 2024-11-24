@@ -1,0 +1,10 @@
+domainFilters:
+  - runcloudone.com
+policy: sync
+provider: google
+serviceAccount:
+  annotations:
+    iam.gke.io/gcp-service-account: tf-sa-external-dns@runcloudone-core-svc.iam.gserviceaccount.com
+sources:
+  - service
+  - ingress

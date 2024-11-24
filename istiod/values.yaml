@@ -1,0 +1,4 @@
+defaultRevision: default
+meshConfig:
+  defaultConfig:
+    holdApplicationUntilProxyStarts: true

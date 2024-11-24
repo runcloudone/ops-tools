@@ -1,0 +1,53 @@
+releases:
+  - name: external-dns
+    namespace: external-dns
+    chart: external-dns/external-dns
+    version: 1.15.0
+    atomic: true
+    values:
+      - external-dns/values.yaml
+    wait: true
+  - name: cert-manager
+    namespace: cert-manager
+    chart: jetstack/cert-manager
+    version: 1.16.2
+    atomic: true
+    values:
+      - cert-manager/values.yaml
+    wait: true
+  - name: istio-base
+    namespace: istio-system
+    chart: istio/base
+    version: 1.24.0
+    atomic: true
+    values:
+      - istio-base/values.yaml
+    wait: true
+  - name: istiod
+    namespace: istio-system
+    chart: istio/istiod
+    version: 1.24.0
+    atomic: true
+    values:
+      - istiod/values.yaml
+    wait: true
+  # - name: istio-ingress
+  #   namespace: istio-ingress
+  #   chart: istio/gateway
+  #   version: 1.24.0
+  #   atomic: true
+  #   values:
+  #     - istio-ingress/values.yaml
+
+helmDefaults:
+  kubeContext: gke_runcloudone-core-svc_us-central1_k8s-shared-01
+  wait: true
+  timeout: 600
+
+repositories:
+  - name: external-dns
+    url: https://kubernetes-sigs.github.io/external-dns/
+  - name: jetstack
+    url: "https://charts.jetstack.io"
+  - name: istio
+    url: https://istio-release.storage.googleapis.com/charts
